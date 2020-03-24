@@ -1,4 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useParams } from 'react';
+import {Route, Link} from 'react-router-dom';
+import MovieList from './Movies/MovieList.js';
+import Movie from './Movies/Movie'
+
 
 import SavedList from './Movies/SavedList';
 
@@ -9,11 +13,19 @@ const App = () => {
     setSavedList( [...savedList, movie] );
   };
 
+
+
   return (
     <div>
       <SavedList list={savedList} />
-      <div>Replace this Div with your Routes</div>
-    </div>
+      <Route exact path="/">  
+      <MovieList />
+      </Route>
+
+      <Route path="/movies/" >
+        <Movie />
+        </Route>
+        </div>
   );
 };
 
